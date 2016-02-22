@@ -1,8 +1,34 @@
-<h1><img src="http://enroute.osgi.org/img/enroute-logo-64.png" witdh=40px style="float:left;margin: 0 1em 1em 0;width:40px">
-OSGi enRoute Archetype</h1>
+# OSGi enRoute LED Controller Example
 
-This repository represents a template workspace for bndtools, it is the easiest way to get started with OSGi enRoute. The workspace is useful in an IDE (bndtools or Intellij) and has support for [continuous integration][2] with [gradle][3]. If you want to get started with enRoute, then follow the steps in the [quick-start guide][1].
+Example application to switch on/off or blink LED connected to Raspberry Pi GPIO Pins using MQTT Communication
 
-[1]: http://enroute.osgi.org/quick-start.html
-[2]: http://enroute.osgi.org/tutorial_base/800-ci.html
-[3]: https://www.gradle.org/
+##### Hardware Requirements:
+1. LED Light
+2. Resistor
+3. Raspberry Pi (Any Model)
+
+##### Bundles Used:
+1. **osgi.enroute.examples.led.controller.application** - Example Application Project
+2. **osgi.enroute.examples.led.controller.core.api** - LED Controller API
+3. **osgi.enroute.examples.led.controller.core.provider** - LED Controller Service Implementation
+4. **osgi.enroute.examples.led.controller.mqtt.api** - MQTT Communication API (Simplified Version)
+5. **osgi.enroute.examples.led.controller.mqtt.provider** - MQTT Communication Service Implementation
+
+##### HOW TO RUN
+Before you start executing the following steps, it is advisable to configure the LED with GPIO Pin as mentioned the following image (although the image is an example). As soon as you connect the LED to the GPIO, you can start executing the following steps.
+
+1. Run either **osgi.enroute.examples.led.controller.bndrun**  or **debug.run**
+2. You can now access the application at **http://&lt;IP Address of the Raspberry Pi&gt;:8080**
+3. Update the settings before you play with this tool
+4. Now you can publish MQTT message (with **on** or **off** or **blink X** payload where **X** is any integer number) to the specified topic
+
+**on** - to switch the LED ON
+
+**off** - to switch the LED OFF
+
+**blink X** - to blink the LED for X number of seconds *(Don't forget to change X to any number)*
+
+##### LED Configuration:
+The following image is an example of connecting **LED** to **GPIO PIN 1**. You can connect to whichever PIN you like.
+ 
+![alt text](http://pi4j.com/images/gpio-control-example.png "LED Configuration")
